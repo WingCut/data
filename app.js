@@ -13,7 +13,7 @@ const {
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 mongoose.connect(
   "mongodb+srv://Penguin:Bestlol17122002@cluster0.victse7.mongodb.net/hotel?retryWrites=true&w=majority"
