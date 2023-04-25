@@ -63,10 +63,30 @@ const deleteRoom = async (req, res) => {
   return res.status(204).json({});
 };
 
+const changeStatus = async (req, res) => {
+  const room = await Room.findByIdAndUpdate(
+    req.params._id,
+    {
+      status: true,
+    },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  return res.status(200).json({
+    status: "success",
+    data: {
+      room: changeStatus,
+    },
+  });
+};
+
 module.exports = {
   getAll,
   createRoom,
   deleteRoom,
   updateRoom,
   getRoomById,
+  changeStatus,
 };
